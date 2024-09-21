@@ -3,44 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Grid</title>
+    <title>Button Grid with Company Selection</title>
     <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* Container Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Styles */
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"],
+        select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Button Grid Styles */
         .button-grid {
             display: grid;
-            grid-template-columns: repeat(4, 150px); /* 4 columns */
+            grid-template-columns: repeat(4, 1fr); /* 4 columns */
             grid-gap: 20px;
             justify-content: center;
+            align-items: center; /* Align items in the center */
         }
+
+        /* Button Image Styles */
         .button-img {
-            width: 100px;
-            height: 100px;
+            width: 100%;
+            height: auto;
             cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            min-height: 100px; /* Set a minimum height */
+            border: 2px solid #3498db; /* Border for visibility */
+            background-color: #ecf0f1; /* Background color for visibility */
+        }
+
+        .button-img:hover {
+            transform: scale(1.05); /* Slight scale effect on hover */
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.3s ease-in; /* Fade in effect */
+        }
+
+        .fade-in.visible {
+            opacity: 1; /* Fully visible */
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            input[type="text"],
+            select {
+                max-width: 100%; /* Full width on small screens */
+            }
+
+            button {
+                width: 100%; /* Full width on small screens */
+            }
+
+            .button-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Button Grid with Independent States</h1>
-    <div class="button-grid" id="buttonGrid">
-        <!-- Buttons will be generated dynamically -->
+    <div class="container">
+        <h1>Select a Company</h1>
+        
+        <!-- Company Selection Area -->
+        <form>
+            <label for="companyInput">Company Name:</label>
+            <input type="text" id="companyInput" placeholder="Enter new company or select from list">
+            
+            <label for="companyDropdown">Select Existing Company:</label>
+            <select id="companyDropdown">
+                <option value="" disabled selected>Select a company</option>
+                <!-- Companies will be dynamically added here -->
+            </select>
+            
+            <button type="button" onclick="loadGrid()">Load Grid</button>
+        </form>
+
+        <h2>Button Grid</h2>
+        <div class="button-grid" id="buttonGrid">
+            <!-- Buttons will be generated dynamically -->
+            <img id="row1-col1" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 1)">
+            <img id="row1-col2" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 2)">
+            <img id="row1-col3" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 3)">
+            <img id="row1-col4" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 4)">
+            <img id="row2-col1" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 1)">
+            <img id="row2-col2" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 2)">
+            <img id="row2-col3" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 3)">
+            <img id="row2-col4" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 4)">
+            <img id="row3-col1" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 1)">
+            <img id="row3-col2" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 2)">
+            <img id="row3-col3" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 3)">
+            <img id="row3-col4" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 4)">
+        </div>
     </div>
 
     <script>
         let states = {}; // Holds states for all buttons
-        let userId = "user123"; // User ID
+        let selectedCompany = ''; // Holds the selected company name
 
-        // Fetch the button states for this user
-        fetch(`/get_state/${userId}`)
-        .then(response => response.json())
-        .then(data => {
-            states = data || {}; // Initialize with empty object if no data is returned
-            createButtons(); // Create and populate buttons
-        });
+        // Function to fetch the list of companies from the server
+        function loadCompanies() {
+            fetch('/get_companies')
+                .then(response => response.json())
+                .then(data => {
+                    let dropdown = document.getElementById('companyDropdown');
+                    dropdown.innerHTML = ''; // Clear existing options
+                    data.forEach(company => {
+                        let option = document.createElement('option');
+                        option.value = company;
+                        option.textContent = company;
+                        dropdown.appendChild(option);
+                    });
+                });
+        }
 
-        // Function to create the 4x3 button grid
+        // Call this when the page loads to fetch existing companies
+        loadCompanies();
+
+        // Function to load the button grid for the selected company
+        function loadGrid() {
+            // Get the company name either from input or dropdown
+            let inputCompany = document.getElementById('companyInput').value.trim();
+            let dropdownCompany = document.getElementById('companyDropdown').value;
+
+            if (inputCompany) {
+                selectedCompany = inputCompany;
+            } else if (dropdownCompany) {
+                selectedCompany = dropdownCompany;
+            } else {
+                alert('Please enter or select a company.');
+                return;
+            }
+
+            // Fetch the button states for the selected company
+            fetch(`/get_state/${selectedCompany}`)
+                .then(response => response.json())
+                .then(data => {
+                    states = data || {}; // Initialize with empty object if no data is returned
+                    createButtons(); // Create and populate buttons
+                });
+        }
+
+        // Function to create the button grid
         function createButtons() {
-            const buttonGrid = document.getElementById('buttonGrid');
-            buttonGrid.innerHTML = ''; // Clear existing buttons if necessary
-
             for (let row = 1; row <= 3; row++) { // 3 rows
                 for (let col = 1; col <= 4; col++) { // 4 columns
                     let buttonId = `row${row}-col${col}`;
@@ -48,21 +217,11 @@
                     // Get the current state for this button from the fetched data, or default to 0 if not available
                     let state = (states[`row${row}`] && states[`row${row}`][`col${col}`]) || 0;
 
-                    // Create image element for the button
-                    let button = document.createElement('img');
+                    // Update the image source based on the current state
+                    let button = document.getElementById(buttonId);
                     button.src = `/static/image${(col + row) % 3 + 1}_state${state + 1}.png`;
-                    button.className = 'button-img';
-                    button.id = buttonId;
-                    button.setAttribute('data-row', row);
-                    button.setAttribute('data-col', col);
-
-                    // Add click event to update state
-                    button.addEventListener('click', function () {
-                        updateButtonState(row, col);
-                    });
-
-                    // Add the button to the grid
-                    buttonGrid.appendChild(button);
+                    button.classList.add('fade-in'); // Add fade-in class
+                    button.classList.add('visible'); // Force visibility
                 }
             }
         }
@@ -80,7 +239,8 @@
             states[`row${row}`][`col${col}`] = state;
 
             // Update the image
-            let button = document.getElementById(`row${row}-col${col}`);
+            let button = document.getElementById(buttonKey);
+            button.classList.add('fade-in'); // Add fade-in class
             button.src = `/static/image${(col + row) % 3 + 1}_state${state + 1}.png`;
 
             // Send the new state to the server
@@ -90,7 +250,7 @@
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    user_id: userId,
+                    company: selectedCompany,
                     row: row,
                     col: col,
                     new_state: state
