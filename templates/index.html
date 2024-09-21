@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Grid</title>
+    <style>
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 150px); /* 4 columns */
+            grid-gap: 20px;
+            justify-content: center;
+        }
+        .button-img {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Button Grid with Independent States</h1>
+    <div class="button-grid" id="buttonGrid">
+        <!-- Buttons will be generated dynamically -->
+    </div>
+
+    <script>
+        let states = {}; // Holds states for all buttons
+        let userId = "user123"; // User ID
+
+        // Fetch the button states for this user
+        fetch(`/get_state/${userId}`)
+        .then(response => response.json())
+        .then(data => {
+            states = data || {}; // Initialize with empty object if no data is returned
+            createButtons(); // Create and populate buttons
+        });
+
+        // Function to create the 4x3 button grid
+        function createButtons() {
+            const buttonGrid = document.getElementById('buttonGrid');
+            buttonGrid.innerHTML = ''; // Clear existing buttons if necessary
+
+            for (let row = 1; row <= 3; row++) { // 3 rows
+                for (let col = 1; col <= 4; col++) { // 4 columns
+                    let buttonId = `row${row}-col${col}`;
+                    
+                    // Get the current state for this button from the fetched data, or default to 0 if not available
+                    let state = (states[`row${row}`] && states[`row${row}`][`col${col}`]) || 0;
+
+                    // Create image element for the button
+                    let button = document.createElement('img');
+                    button.src = `/static/image${(col + row) % 3 + 1}_state${state + 1}.png`;
+                    button.className = 'button-img';
+                    button.id = buttonId;
+                    button.setAttribute('data-row', row);
+                    button.setAttribute('data-col', col);
+
+                    // Add click event to update state
+                    button.addEventListener('click', function () {
+                        updateButtonState(row, col);
+                    });
+
+                    // Add the button to the grid
+                    buttonGrid.appendChild(button);
+                }
+            }
+        }
+
+        // Function to handle button state updates
+        function updateButtonState(row, col) {
+            let buttonKey = `row${row}-col${col}`;
+            let state = (states[`row${row}`] && states[`row${row}`][`col${col}`]) || 0;
+            state = (state + 1) % 3; // Cycle between 0, 1, and 2
+
+            // Update state locally
+            if (!states[`row${row}`]) {
+                states[`row${row}`] = {};
+            }
+            states[`row${row}`][`col${col}`] = state;
+
+            // Update the image
+            let button = document.getElementById(`row${row}-col${col}`);
+            button.src = `/static/image${(col + row) % 3 + 1}_state${state + 1}.png`;
+
+            // Send the new state to the server
+            fetch('/update_state', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    user_id: userId,
+                    row: row,
+                    col: col,
+                    new_state: state
+                })
+            });
+        }
+    </script>
+</body>
+</html>
