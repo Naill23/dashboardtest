@@ -8,20 +8,16 @@
         /* Global Styles */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f4f8;
             margin: 0;
-            padding: 20px;
             color: #333;
         }
 
         /* Container Styles */
         .container {
-            max-width: 1200px;
             margin: 0 auto;
+            max-width: 60%;
             padding: 20px;
             background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         /* Header Styles */
@@ -30,12 +26,30 @@
             color: #2c3e50;
         }
 
-        /* Form Styles */
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         label {
@@ -48,14 +62,13 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             width: 100%;
-            max-width: 400px;
             margin-bottom: 15px;
             font-size: 16px;
         }
 
         button {
             padding: 10px 20px;
-            background-color: #3498db;
+            background-color: #92be3d;
             color: white;
             border: none;
             border-radius: 5px;
@@ -65,16 +78,51 @@
         }
 
         button:hover {
-            background-color: #2980b9;
+            background-color: #37a447;
+        }
+
+        /* Footer Grid Styles*/
+        .footer-grid {
+            display: flex;
+            justify-content: space-between; /* Align button to the left and logo to the right */
+            align-items: center; /* Vertically center the button and logo */
+        }
+
+        .footer-grid button {
+            margin-right: auto; /* Ensure button stays on the left */
+        }
+
+        .footer-grid .logo {
+            margin-left: auto; /* Ensure logo stays on the right */
         }
 
         /* Button Grid Styles */
         .button-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 columns */
+            grid-template-columns: repeat(4, 1fr);
             grid-gap: 20px;
             justify-content: center;
-            align-items: center; /* Align items in the center */
+            align-items: center;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px; /* Adjust this to fit your layout */
+            margin: 0 auto 25px auto; /* Center the form group */
+        }
+
+        .form-group input, .form-group select {
+            width: 100%; /* Make the input and select fields responsive */
+            padding: 10px; /* Add padding for better UX */
+            margin-top: 5px; /* Add margin to space elements */
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group label:last-of-type {
+            margin-top: 30px;
+            font-weight: bold;
         }
 
         /* Button Image Styles */
@@ -83,95 +131,174 @@
             height: auto;
             cursor: pointer;
             transition: transform 0.2s, opacity 0.2s;
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-            min-height: 100px; /* Set a minimum height */
-            border: 2px solid #3498db; /* Border for visibility */
-            background-color: #ecf0f1; /* Background color for visibility */
+            min-height: 100px;
         }
 
-        .button-img:hover {
-            transform: scale(1.05); /* Slight scale effect on hover */
+        .button-item:nth-child(n+5):nth-child(-n+16) .button-img:hover {
+            transform: scale(1.15);
+            transition: transform 0.2s;
         }
 
         .fade-in {
             opacity: 0;
-            transition: opacity 0.3s ease-in; /* Fade in effect */
+            transition: opacity 0.3s ease-in;
         }
 
         .fade-in.visible {
-            opacity: 1; /* Fully visible */
+            opacity: 1;
+        }
+
+        .button-item {
+            text-align: center; /* Center the text below the image */
+        }
+
+        .button-text {
+            display: block; /* Ensure text appears on its own line */
+            margin-top: 5px; /* Add some spacing between the image and text */
+            font-size: 16px; /* Adjust font size as needed */
+            color: #555; /* Text color */
+            display: none; /* Initially hidden */
+            font-weight: 900;
+        }
+        .button-item:nth-child(n+5):nth-child(-n+16) .button-text{
+            margin-top: -35px !important;
+        }
+        .button-item:nth-child(n+5):nth-child(-n+16) {
+            margin-top: -40px !important;
+        }
+        .button-item:nth-child(-n+4) .button-text{
+            cursor: auto;
+            background-color: #92be3d;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
         }
 
         /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
-            form {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            input[type="text"],
-            select {
-                max-width: 100%; /* Full width on small screens */
-            }
-
-            button {
-                width: 100%; /* Full width on small screens */
+            .modal-content {
+                width: 90%; /* Full width on small screens */
             }
 
             .button-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Select a Company</h1>
-        
-        <!-- Company Selection Area -->
-        <form>
-            <label for="companyInput">Company Name:</label>
-            <input type="text" id="companyInput" placeholder="Enter new company or select from list">
-            
-            <label for="companyDropdown">Select Existing Company:</label>
-            <select id="companyDropdown">
-                <option value="" disabled selected>Select a company</option>
-                <!-- Companies will be dynamically added here -->
-            </select>
-            
-            <button type="button" onclick="loadGrid()">Load Grid</button>
-        </form>
-
-        <h2>Button Grid</h2>
+        <div class="footer-grid">    
+            <!-- Button to open modal -->
+            <button id="openModalBtn">Select Company</button>
+            <h2 id="companyName" style="text-align: center; display: none;"></h2>
+            <img class="logo" src="/static/foodtracks-color.svg" width="150">
+        </div>
+        <h1>START-PLAN</h1>
         <div class="button-grid" id="buttonGrid">
-            <!-- Buttons will be generated dynamically -->
-            <img id="row1-col1" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 1)">
-            <img id="row1-col2" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 2)">
-            <img id="row1-col3" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 3)">
-            <img id="row1-col4" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 4)">
-            <img id="row2-col1" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 1)">
-            <img id="row2-col2" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 2)">
-            <img id="row2-col3" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 3)">
-            <img id="row2-col4" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 4)">
-            <img id="row3-col1" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 1)">
-            <img id="row3-col2" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 2)">
-            <img id="row3-col3" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 3)">
-            <img id="row3-col4" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 4)">
+            <!-- Headings for Blocks -->
+            <div class="button-item">
+                <img id="row0-col1" class="button-img fade-in" src="/static/main_icons_1.png" width="150" height="150">
+                <span class="button-text">1 WOCHE</span>
+            </div>
+            <div class="button-item">
+                <img id="row0-col2" class="button-img fade-in" src="/static/main_icons_2.png" width="150" height="150">
+                <span class="button-text">2 WOCHEN</span>
+            </div>
+            <div class="button-item">
+                <img id="row0-col3" class="button-img fade-in" src="/static/main_icons_3.png" width="150" height="150">
+                <span class="button-text">4 WOCHEN</span>
+            </div>
+            <div class="button-item">
+                <img id="row0-col4" class="button-img fade-in" src="/static/main_icons_4.png" width="150" height="150">
+                <span class="button-text">6 WOCHEN</span>
+            </div>
+            <!-- Grid with Images -->
+            <div class="button-item">
+                <img id="row1-col1" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 1)">
+                <span class="button-text">TEAM</span>
+            </div>
+            <div class="button-item">
+                <img id="row1-col2" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 2)">
+                <span class="button-text">DATEN-CHECK</span>
+            </div>
+            <div class="button-item">
+                <img id="row1-col3" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 3)">
+                <span class="button-text">TESTPHASE</span>
+            </div>
+            <div class="button-item">
+                <img id="row1-col4" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 4)">
+                <span class="button-text">ROLLOUT</span>
+            </div>
+            <div class="button-item">
+                <img id="row2-col1" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 1)">
+                <span class="button-text">BENCHMARKING</span>
+            </div>
+            <div class="button-item">
+                <img id="row2-col2" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 2)">
+                <span class="button-text">EINSTELLUNGEN</span>
+            </div>
+            <div class="button-item">
+                <img id="row2-col3" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 3)">
+                <span class="button-text">BEWERTUNG</span>
+            </div>
+            <div class="button-item">
+                <img id="row2-col4" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 4)">
+                <span class="button-text">SUPPORT</span>
+            </div>
+            <div class="button-item">
+                <img id="row3-col1" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 1)">
+                <span class="button-text">ZIELE</span>
+            </div>
+            <div class="button-item">
+                <img id="row3-col2" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 2)">
+                <span class="button-text">SCHULUNG</span>
+            </div>
+            <div class="button-item">
+                <img id="row3-col3" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 3)">
+                <span class="button-text">FILIAL-TAG</span>
+            </div>
+            <div class="button-item">
+                <img id="row3-col4" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 4)">
+                <span class="button-text">OPTIMIERUNG</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for company selection -->
+    <div id="companyModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModalBtn" style="cursor:pointer; float:right;">&times;</span>
+            <h2>Company Selection</h2>
+            <form id="companyForm" class="form-grid">
+                <!-- First Column: Two inputs -->
+                <div class="form-group">
+                    <label for="companyInput">Company Name:</label>
+                    <input type="text" id="companyInput" placeholder="Enter new company or select from list">
+                    <button type="button" onclick="addNewCompany()">Add Company</button>
+                    <label for="companyDropdown">Select Existing Company:</label>
+                    <select id="companyDropdown">
+                        <option value="" disabled selected>Select a company</option>
+                    </select>
+                    <button type="button" onclick="loadGrid()">Load Grid</button>
+
+                </div>
+            </form>
         </div>
     </div>
 
     <script>
         let states = {}; // Holds states for all buttons
         let selectedCompany = ''; // Holds the selected company name
+        let gridLoaded = false; // Track if the grid has been loaded
 
-        // Function to fetch the list of companies from the server
+        // Load companies into the dropdown
         function loadCompanies() {
             fetch('/get_companies')
                 .then(response => response.json())
                 .then(data => {
                     let dropdown = document.getElementById('companyDropdown');
-                    dropdown.innerHTML = ''; // Clear existing options
+                    dropdown.innerHTML = '';
                     data.forEach(company => {
                         let option = document.createElement('option');
                         option.value = company;
@@ -184,66 +311,118 @@
         // Call this when the page loads to fetch existing companies
         loadCompanies();
 
+        // Function to open the modal
+        document.getElementById('openModalBtn').onclick = function() {
+            document.getElementById('companyModal').style.display = 'block';
+        }
+
+        // Function to close the modal
+        document.getElementById('closeModalBtn').onclick = function() {
+            document.getElementById('companyModal').style.display = 'none';
+        }
+
+        // Function to add a new company
+        function addNewCompany() {
+            const companyName = document.getElementById('companyInput').value.trim();
+            if (companyName) {
+                fetch('/add-company', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ company: companyName }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Company added successfully!') {
+                        const newOption = document.createElement('option');
+                        newOption.value = companyName;
+                        newOption.textContent = companyName;
+                        document.getElementById('companyDropdown').appendChild(newOption);
+                        document.getElementById('companyDropdown').value = companyName;
+                        document.getElementById('companyInput').value = '';
+                    } else {
+                        alert('Failed to add company');
+                    }
+                })
+                .catch(error => console.error('Error adding company:', error));
+            } else {
+                alert('Please enter a company name.');
+            }
+        }
+
         // Function to load the button grid for the selected company
         function loadGrid() {
-            // Get the company name either from input or dropdown
-            let inputCompany = document.getElementById('companyInput').value.trim();
             let dropdownCompany = document.getElementById('companyDropdown').value;
 
-            if (inputCompany) {
-                selectedCompany = inputCompany;
-            } else if (dropdownCompany) {
+            if (dropdownCompany) {
                 selectedCompany = dropdownCompany;
+                document.getElementById('companyModal').style.display = 'none'; // Close modal after selection
+                const companyNameElement = document.getElementById('companyName');
+                companyNameElement.textContent = selectedCompany; // Set the chosen company name
+                companyNameElement.style.display = 'block';
             } else {
-                alert('Please enter or select a company.');
+                alert('Please select a company.');
                 return;
             }
 
-            // Fetch the button states for the selected company
             fetch(`/get_state/${selectedCompany}`)
                 .then(response => response.json())
                 .then(data => {
-                    states = data || {}; // Initialize with empty object if no data is returned
-                    createButtons(); // Create and populate buttons
+                    states = data || {};
+                    createButtons();
+                    // Show text after loading the grid for the first time
+                    if (!gridLoaded) {
+                        document.querySelectorAll('.button-text').forEach(text => {
+                            text.style.display = 'block'; // Show all text elements
+                        });
+                        gridLoaded = true; // Mark the grid as loaded
+                    }
                 });
         }
 
         // Function to create the button grid
         function createButtons() {
-            for (let row = 1; row <= 3; row++) { // 3 rows
-                for (let col = 1; col <= 4; col++) { // 4 columns
+            for (let row = 0; row <= 3; row++) {
+                for (let col = 1; col <= 4; col++) {
                     let buttonId = `row${row}-col${col}`;
-                    
-                    // Get the current state for this button from the fetched data, or default to 0 if not available
-                    let state = (states[`row${row}`] && states[`row${row}`][`col${col}`]) || 0;
-
-                    // Update the image source based on the current state
                     let button = document.getElementById(buttonId);
-                    button.src = `/static/image${(col + row) % 3 + 1}_state${state + 1}.png`;
-                    button.classList.add('fade-in'); // Add fade-in class
-                    button.classList.add('visible'); // Force visibility
+
+                    // Static images for the first row
+                    if (row === 0) {
+                        button.src = `/static/main_icons_${col}.png`; // Use 4 static images in row 1
+                    } else {
+                        // Dynamic rows (2-4), image numbers from 1 to 12
+                        let imageNumber = (col + (row - 1) * 4); // Calculate image number for rows 2-4
+                        let state = (states[`row${row}`] && states[`row${row}`][`col${col}`]) || 0;
+                        button.src = `/static/image${imageNumber}_state${state + 1}.png`;
+                    }
+                    button.classList.add('fade-in');
+                    button.classList.add('visible');
                 }
             }
         }
 
-        // Function to handle button state updates
+// Function to handle button state updates
         function updateButtonState(row, col) {
+            if (row === 0) return; // Skip update for the first row (static images)
+
             let buttonKey = `row${row}-col${col}`;
             let state = (states[`row${row}`] && states[`row${row}`][`col${col}`]) || 0;
-            state = (state + 1) % 3; // Cycle between 0, 1, and 2
+            state = (state + 1) % 3;
 
-            // Update state locally
             if (!states[`row${row}`]) {
                 states[`row${row}`] = {};
             }
             states[`row${row}`][`col${col}`] = state;
 
-            // Update the image
             let button = document.getElementById(buttonKey);
-            button.classList.add('fade-in'); // Add fade-in class
-            button.src = `/static/image${(col + row) % 3 + 1}_state${state + 1}.png`;
+            button.classList.add('fade-in');
 
-            // Send the new state to the server
+            // Update image number from 1 to 12 based on row and column
+            let imageNumber = (col + (row - 1) * 4); // Calculate image number for rows 2-4
+            button.src = `/static/image${imageNumber}_state${state + 1}.png`;
+
             fetch('/update_state', {
                 method: 'POST',
                 headers: {
@@ -257,6 +436,14 @@
                 })
             });
         }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target === document.getElementById('companyModal')) {
+                document.getElementById('companyModal').style.display = 'none';
+            }
+        }
     </script>
+
 </body>
 </html>
