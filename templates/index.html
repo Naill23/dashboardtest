@@ -152,6 +152,16 @@
             text-align: center; /* Center the text below the image */
         }
 
+        .button-item.border-visible {
+            padding-right: 20px;
+            border-right: 1px solid #e8e8e8;
+        }
+
+        .button-item.border-visible:nth-child(4n){
+            padding-right: 0px;
+            border-right: 0px;
+        }
+
         .button-text {
             display: block; /* Ensure text appears on its own line */
             margin-top: 5px; /* Add some spacing between the image and text */
@@ -361,6 +371,11 @@
                 const companyNameElement = document.getElementById('companyName');
                 companyNameElement.textContent = selectedCompany; // Set the chosen company name
                 companyNameElement.style.display = 'block';
+
+                const gridItems = document.querySelectorAll('.button-item');
+                gridItems.forEach(item => {
+                    item.classList.add('border-visible');
+                });
             } else {
                 alert('Please select a company.');
                 return;
