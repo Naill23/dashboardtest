@@ -100,7 +100,6 @@
         .button-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-gap: 20px;
             justify-content: center;
             align-items: center;
         }
@@ -153,13 +152,13 @@
         }
 
         .button-item.border-visible {
-            padding-right: 20px;
+            padding: 0 20px;
             border-right: 1px solid #e8e8e8;
         }
 
         .button-item.border-visible:nth-child(4n){
-            padding-right: 0px;
             border-right: 0px;
+            border-right: 1px solid #ffffff;
         }
 
         .button-text {
@@ -171,10 +170,10 @@
             font-weight: 900;
         }
         .button-item:nth-child(n+5):nth-child(-n+16) .button-text{
-            margin-top: -35px !important;
+            margin-top: -40px !important;
         }
         .button-item:nth-child(n+5):nth-child(-n+16) {
-            margin-top: -40px !important;
+            margin-top: -20px !important;
         }
         .button-item:nth-child(-n+4) .button-text{
             cursor: auto;
