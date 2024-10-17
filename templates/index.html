@@ -7,10 +7,15 @@
     <style>
         /* Global Styles */
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
+            font-family: 'Lato', sans-serif;
             color: #333;
+            display: flex;          
+            justify-content: center;  
+            align-items: center;    
+            height: 95vh;  
+            margin: 0;   
         }
+        
 
         /* Container Styles */
         .container {
@@ -71,9 +76,11 @@
             background-color: #92be3d;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            font-weight: 700;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             transition: background-color 0.3s;
         }
 
@@ -102,6 +109,10 @@
             grid-template-columns: repeat(4, 1fr);
             justify-content: center;
             align-items: center;
+            background-color: #F7F7F5;
+            border-radius: 30px;
+            padding: 20px;
+            margin-top: 1em;
         }
         .form-group {
             display: flex;
@@ -126,11 +137,14 @@
 
         /* Button Image Styles */
         .button-img {
-            width: 100%;
+            width: 50%;
             height: auto;
             cursor: pointer;
             transition: transform 0.2s, opacity 0.2s;
-            min-height: 100px;
+        }
+
+        .button-item:nth-child(-n+4) .button-img{
+            width: 70%;
         }
 
         .button-item:nth-child(n+5):nth-child(-n+16) .button-img:hover {
@@ -148,39 +162,84 @@
         }
 
         .button-item {
+            margin-bottom: 20px;
             text-align: center; /* Center the text below the image */
+        }
+        .button-item:nth-child(5),
+        .button-item:nth-child(6),
+        .button-item:nth-child(7),
+        .button-item:nth-child(8){
+            background-color: rgb(255, 255, 255);
+            padding-top: 40px !important;
+            margin: -40px 10px 0px 10px;
+            border-radius: 30px 30px 0 0;
+        }
+        
+        h1{
+            color: #37A447;
+            font-weight: 900;
+        }
+
+        .button-item:nth-child(9),
+        .button-item:nth-child(10),
+        .button-item:nth-child(11),
+        .button-item:nth-child(12){
+            background-color: rgb(255, 255, 255);
+            padding-top: 20px !important;
+            margin: 0px 10px;
+        }
+
+        .button-item:nth-child(13),
+        .button-item:nth-child(14),
+        .button-item:nth-child(15),
+        .button-item:nth-child(16){
+            background-color: rgb(255, 255, 255);
+            padding-top: 20px !important;
+            padding-bottom: 25px !important;
+            margin: 0px 10px;
+            border-radius: 0 0 30px 30px;
         }
 
         .button-item.border-visible {
             padding: 0 20px;
-            border-right: 1px solid #e8e8e8;
         }
 
         .button-item.border-visible:nth-child(4n){
             border-right: 0px;
-            border-right: 1px solid #ffffff;
         }
 
         .button-text {
             display: block; /* Ensure text appears on its own line */
             margin-top: 5px; /* Add some spacing between the image and text */
-            font-size: 16px; /* Adjust font size as needed */
+            font-size: 14px; /* Adjust font size as needed */
             color: #555; /* Text color */
             display: none; /* Initially hidden */
-            font-weight: 900;
+            font-weight: 700;
         }
-        .button-item:nth-child(n+5):nth-child(-n+16) .button-text{
-            margin-top: -40px !important;
+
+        .button-item:nth-child(-n+4) {
+            z-index: 99;
         }
-        .button-item:nth-child(n+5):nth-child(-n+16) {
-            margin-top: -20px !important;
-        }
+
         .button-item:nth-child(-n+4) .button-text{
             cursor: auto;
-            background-color: #92be3d;
             padding: 5px;
-            border-radius: 5px;
+            border-radius: 50px;
+            margin: 0 30px;
             color: white;
+            z-index: 99;
+        }
+        .button-item:nth-child(1) .button-text{
+            background-color: #145F37;
+        }
+        .button-item:nth-child(2) .button-text{
+            background-color: #357F3A;
+        }
+        .button-item:nth-child(3) .button-text{
+            background-color: #579E3E;
+        }
+        .button-item:nth-child(4) .button-text{
+            background-color: #78BE41;
         }
 
         /* Media Queries for Responsiveness */
@@ -193,17 +252,80 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+        .lato-thin {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.lato-light {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.lato-black {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.lato-thin-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.lato-light-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.lato-regular-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.lato-bold-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.lato-black-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <div class="footer-grid">    
             <!-- Button to open modal -->
             <button id="openModalBtn">Select Company</button>
+            <h1>STARTPLAN</h1>
             <h2 id="companyName" style="text-align: center; display: none;"></h2>
             <img class="logo" src="/static/foodtracks-color.svg" width="150">
         </div>
-        <h1>START-PLAN</h1>
         <div class="button-grid" id="buttonGrid">
             <!-- Headings for Blocks -->
             <div class="button-item">
@@ -300,7 +422,7 @@
         let states = {}; // Holds states for all buttons
         let selectedCompany = ''; // Holds the selected company name
         let gridLoaded = false; // Track if the grid has been loaded
-
+    
         // Load companies into the dropdown
         function loadCompanies() {
             fetch('/get_companies')
@@ -316,21 +438,75 @@
                     });
                 });
         }
-
-        // Call this when the page loads to fetch existing companies
+    
         loadCompanies();
-
+    
         // Function to open the modal
         document.getElementById('openModalBtn').onclick = function() {
             document.getElementById('companyModal').style.display = 'block';
         }
-
+    
         // Function to close the modal
         document.getElementById('closeModalBtn').onclick = function() {
             document.getElementById('companyModal').style.display = 'none';
         }
+    
+        // Function to load the button grid for the selected company
+        function loadGrid() {
+            let dropdownCompany = document.getElementById('companyDropdown').value;
 
-        // Function to add a new company
+            if (dropdownCompany) {
+                selectedCompany = dropdownCompany;
+                document.getElementById('companyModal').style.display = 'none'; // Close modal after selection
+                
+                // Update the button text to show the selected company
+                document.getElementById('openModalBtn').textContent = selectedCompany;
+
+                const gridItems = document.querySelectorAll('.button-item');
+                gridItems.forEach(item => {
+                    item.classList.add('border-visible');
+                });
+            } else {
+                alert('Please select a company.');
+                return;
+            }
+
+            fetch(`/get_state/${selectedCompany}`)
+                .then(response => response.json())
+                .then(data => {
+                    states = data || {};
+                    createButtons();
+                    if (!gridLoaded) {
+                        document.querySelectorAll('.button-text').forEach(text => {
+                            text.style.display = 'block'; // Show all text elements
+                        });
+                        gridLoaded = true;
+                    }
+                });
+        }
+
+    
+        // Function to create the button grid
+        function createButtons() {
+            for (let row = 0; row <= 3; row++) {
+                for (let col = 1; col <= 4; col++) {
+                    let buttonId = `row${row}-col${col}`;
+                    let button = document.getElementById(buttonId);
+    
+                    // Static images for the first row
+                    if (row === 0) {
+                        button.src = `/static/main_icons_${col}.png`;
+                    } else {
+                        let imageNumber = (col + (row - 1) * 4); // Calculate image number
+                        let state = (states[`row${row}`] && states[`row${row}`][`col${col}`]) || 0;
+                        button.src = `/static/image${imageNumber}_state${state + 1}.png`;
+                    }
+                    button.classList.add('fade-in');
+                    button.classList.add('visible');
+                }
+            }
+        }
+            // Function to add a new company
         function addNewCompany() {
             const companyName = document.getElementById('companyInput').value.trim();
             if (companyName) {
@@ -359,84 +535,44 @@
                 alert('Please enter a company name.');
             }
         }
-
-        // Function to load the button grid for the selected company
-        function loadGrid() {
-            let dropdownCompany = document.getElementById('companyDropdown').value;
-
-            if (dropdownCompany) {
-                selectedCompany = dropdownCompany;
-                document.getElementById('companyModal').style.display = 'none'; // Close modal after selection
-                const companyNameElement = document.getElementById('companyName');
-                companyNameElement.textContent = selectedCompany; // Set the chosen company name
-                companyNameElement.style.display = 'block';
-
-                const gridItems = document.querySelectorAll('.button-item');
-                gridItems.forEach(item => {
-                    item.classList.add('border-visible');
-                });
-            } else {
-                alert('Please select a company.');
-                return;
-            }
-
-            fetch(`/get_state/${selectedCompany}`)
-                .then(response => response.json())
-                .then(data => {
-                    states = data || {};
-                    createButtons();
-                    // Show text after loading the grid for the first time
-                    if (!gridLoaded) {
-                        document.querySelectorAll('.button-text').forEach(text => {
-                            text.style.display = 'block'; // Show all text elements
-                        });
-                        gridLoaded = true; // Mark the grid as loaded
-                    }
-                });
-        }
-
-        // Function to create the button grid
-        function createButtons() {
-            for (let row = 0; row <= 3; row++) {
-                for (let col = 1; col <= 4; col++) {
-                    let buttonId = `row${row}-col${col}`;
-                    let button = document.getElementById(buttonId);
-
-                    // Static images for the first row
-                    if (row === 0) {
-                        button.src = `/static/main_icons_${col}.png`; // Use 4 static images in row 1
-                    } else {
-                        // Dynamic rows (2-4), image numbers from 1 to 12
-                        let imageNumber = (col + (row - 1) * 4); // Calculate image number for rows 2-4
-                        let state = (states[`row${row}`] && states[`row${row}`][`col${col}`]) || 0;
-                        button.src = `/static/image${imageNumber}_state${state + 1}.png`;
-                    }
-                    button.classList.add('fade-in');
-                    button.classList.add('visible');
-                }
-            }
-        }
-
-// Function to handle button state updates
+    
+        // Function to handle button state updates, including text color changes
         function updateButtonState(row, col) {
             if (row === 0) return; // Skip update for the first row (static images)
-
+    
             let buttonKey = `row${row}-col${col}`;
             let state = (states[`row${row}`] && states[`row${row}`][`col${col}`]) || 0;
-            state = (state + 1) % 3;
-
+            state = (state + 1) % 4;
+    
             if (!states[`row${row}`]) {
                 states[`row${row}`] = {};
             }
             states[`row${row}`][`col${col}`] = state;
-
+    
             let button = document.getElementById(buttonKey);
             button.classList.add('fade-in');
-
-            // Update image number from 1 to 12 based on row and column
-            let imageNumber = (col + (row - 1) * 4); // Calculate image number for rows 2-4
+    
+            // Update image number based on row and column
+            let imageNumber = (col + (row - 1) * 4); // Calculate image number
             button.src = `/static/image${imageNumber}_state${state + 1}.png`;
-
+    
+            // Change text color based on state
+            let buttonText = button.nextElementSibling;
+            switch (state) {
+                case 0:
+                    buttonText.style.color = '#A2AFA2'; // Default color
+                    break;
+                case 1:
+                    buttonText.style.color = '#749F2D'; // Red for state 1
+                    break;
+                case 2:
+                    buttonText.style.color = '#E08409'; // Green for state 2
+                    break;
+                case 3:
+                    buttonText.style.color = '#D10F00'; // Blue for state 3
+                    break;
+            }
+    
             fetch('/update_state', {
                 method: 'POST',
                 headers: {
@@ -450,7 +586,7 @@
                 })
             });
         }
-
+    
         // Close modal when clicking outside of it
         window.onclick = function(event) {
             if (event.target === document.getElementById('companyModal')) {
@@ -458,6 +594,9 @@
             }
         }
     </script>
+
+    
+    
 
 </body>
 </html>
