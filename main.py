@@ -11,6 +11,10 @@ FIREBASE_URL = 'https://dashboard-f40db-default-rtdb.europe-west1.firebasedataba
 def index():
     return render_template('index.html')
 
+@app.route('/new')
+def original_page():
+    return render_template('new.html')
+
 # Route to handle button state changes
 @app.route('/update_state', methods=['POST'])
 def update_state():
