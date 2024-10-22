@@ -13,7 +13,7 @@ def index():
 
 @app.route('/old')
 def original_page():
-    return render_template('new.html')
+    return render_template('old.html')
 
 # Route to handle button state changes
 @app.route('/update_state', methods=['POST'])
