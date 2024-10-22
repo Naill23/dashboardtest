@@ -144,7 +144,7 @@
         }
 
         .button-item:nth-child(-n+4) .button-img{
-            width: 70%;
+            width: 100%;
         }
 
         .button-item:nth-child(n+5):nth-child(-n+16) .button-img:hover {
@@ -201,7 +201,7 @@
         }
 
         .button-item.border-visible {
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         .button-item.border-visible:nth-child(4n){
@@ -224,22 +224,30 @@
         .button-item:nth-child(-n+4) .button-text{
             cursor: auto;
             padding: 5px;
-            border-radius: 50px;
+            border-radius: 10px;
             margin: 0 30px;
             color: white;
             z-index: 99;
         }
         .button-item:nth-child(1) .button-text{
-            background-color: #145F37;
+            background-color: #fff;
+            border: 2px solid #145F37;
+            color: #145F37;
         }
         .button-item:nth-child(2) .button-text{
-            background-color: #357F3A;
+            background-color: #fff;
+            border: 2px solid #357F3A;
+            color: #357F3A;
         }
         .button-item:nth-child(3) .button-text{
-            background-color: #579E3E;
+            background-color: #fff;
+            border: 2px solid #579E3E;
+            color: #579E3E;
         }
         .button-item:nth-child(4) .button-text{
-            background-color: #78BE41;
+            background-color: #fff;
+            border: 2px solid #78BE41;
+            color: #78BE41;
         }
 
         /* Media Queries for Responsiveness */
@@ -314,7 +322,7 @@
 
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic/new.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -324,73 +332,73 @@
             <button id="openModalBtn">Select Company</button>
             <h1>STARTPLAN</h1>
             <h2 id="companyName" style="text-align: center; display: none;"></h2>
-            <img class="logo" src="/static/foodtracks-color.svg" width="150">
+            <img class="logo" src="/static/new/foodtracks-color.svg" width="150">
         </div>
         <div class="button-grid" id="buttonGrid">
             <!-- Headings for Blocks -->
             <div class="button-item">
-                <img id="row0-col1" class="button-img fade-in" src="/static/main_icons_1.png" width="150" height="150">
+                <img id="row0-col1" class="button-img fade-in" src="/static/new/main_icons_1.png" width="150" height="150">
                 <span class="button-text">1 WOCHE</span>
             </div>
             <div class="button-item">
-                <img id="row0-col2" class="button-img fade-in" src="/static/main_icons_2.png" width="150" height="150">
+                <img id="row0-col2" class="button-img fade-in" src="/static/new/main_icons_2.png" width="150" height="150">
                 <span class="button-text">2 WOCHEN</span>
             </div>
             <div class="button-item">
-                <img id="row0-col3" class="button-img fade-in" src="/static/main_icons_3.png" width="150" height="150">
+                <img id="row0-col3" class="button-img fade-in" src="/static/new/main_icons_3.png" width="150" height="150">
                 <span class="button-text">4 WOCHEN</span>
             </div>
             <div class="button-item">
-                <img id="row0-col4" class="button-img fade-in" src="/static/main_icons_4.png" width="150" height="150">
+                <img id="row0-col4" class="button-img fade-in" src="/static/new/main_icons_4.png" width="150" height="150">
                 <span class="button-text">6 WOCHEN</span>
             </div>
             <!-- Grid with Images -->
             <div class="button-item">
-                <img id="row1-col1" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 1)">
+                <img id="row1-col1" class="button-img fade-in" src="/static/new/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 1)">
                 <span class="button-text">TEAM</span>
             </div>
             <div class="button-item">
-                <img id="row1-col2" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 2)">
+                <img id="row1-col2" class="button-img fade-in" src="/static/new/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 2)">
                 <span class="button-text">DATEN-CHECK</span>
             </div>
             <div class="button-item">
-                <img id="row1-col3" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 3)">
+                <img id="row1-col3" class="button-img fade-in" src="/static/new/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 3)">
                 <span class="button-text">TESTPHASE</span>
             </div>
             <div class="button-item">
-                <img id="row1-col4" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 4)">
+                <img id="row1-col4" class="button-img fade-in" src="/static/new/image1_state1.png" width="150" height="150" onclick="updateButtonState(1, 4)">
                 <span class="button-text">ROLLOUT</span>
             </div>
             <div class="button-item">
-                <img id="row2-col1" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 1)">
+                <img id="row2-col1" class="button-img fade-in" src="/static/new/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 1)">
                 <span class="button-text">BENCHMARKING</span>
             </div>
             <div class="button-item">
-                <img id="row2-col2" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 2)">
+                <img id="row2-col2" class="button-img fade-in" src="/static/new/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 2)">
                 <span class="button-text">EINSTELLUNGEN</span>
             </div>
             <div class="button-item">
-                <img id="row2-col3" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 3)">
+                <img id="row2-col3" class="button-img fade-in" src="/static/new/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 3)">
                 <span class="button-text">BEWERTUNG</span>
             </div>
             <div class="button-item">
-                <img id="row2-col4" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 4)">
+                <img id="row2-col4" class="button-img fade-in" src="/static/new/image1_state1.png" width="150" height="150" onclick="updateButtonState(2, 4)">
                 <span class="button-text">SUPPORT</span>
             </div>
             <div class="button-item">
-                <img id="row3-col1" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 1)">
+                <img id="row3-col1" class="button-img fade-in" src="/static/new/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 1)">
                 <span class="button-text">ZIELE</span>
             </div>
             <div class="button-item">
-                <img id="row3-col2" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 2)">
+                <img id="row3-col2" class="button-img fade-in" src="/static/new/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 2)">
                 <span class="button-text">SCHULUNG</span>
             </div>
             <div class="button-item">
-                <img id="row3-col3" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 3)">
+                <img id="row3-col3" class="button-img fade-in" src="/static/new/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 3)">
                 <span class="button-text">FILIAL-TAG</span>
             </div>
             <div class="button-item">
-                <img id="row3-col4" class="button-img fade-in" src="/static/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 4)">
+                <img id="row3-col4" class="button-img fade-in" src="/static/new/image1_state1.png" width="150" height="150" onclick="updateButtonState(3, 4)">
                 <span class="button-text">OPTIMIERUNG</span>
             </div>
         </div>
@@ -493,13 +501,13 @@
                     let buttonId = `row${row}-col${col}`;
                     let button = document.getElementById(buttonId);
     
-                    // Static images for the first row
+                    // static/new images for the first row
                     if (row === 0) {
-                        button.src = `/static/main_icons_${col}.png`;
+                        button.src = `/static/new/main_icons_${col}.png`;
                     } else {
                         let imageNumber = (col + (row - 1) * 4); // Calculate image number
                         let state = (states[`row${row}`] && states[`row${row}`][`col${col}`]) || 0;
-                        button.src = `/static/image${imageNumber}_state${state + 1}.png`;
+                        button.src = `/static/new/image${imageNumber}_state${state + 1}.png`;
                     }
                     button.classList.add('fade-in');
                     button.classList.add('visible');
@@ -538,7 +546,7 @@
     
         // Function to handle button state updates, including text color changes
         function updateButtonState(row, col) {
-            if (row === 0) return; // Skip update for the first row (static images)
+            if (row === 0) return; // Skip update for the first row (static/new images)
     
             let buttonKey = `row${row}-col${col}`;
             let state = (states[`row${row}`] && states[`row${row}`][`col${col}`]) || 0;
@@ -554,7 +562,7 @@
     
             // Update image number based on row and column
             let imageNumber = (col + (row - 1) * 4); // Calculate image number
-            button.src = `/static/image${imageNumber}_state${state + 1}.png`;
+            button.src = `/static/new/image${imageNumber}_state${state + 1}.png`;
     
             // Change text color based on state
             let buttonText = button.nextElementSibling;
